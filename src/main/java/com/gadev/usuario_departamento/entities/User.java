@@ -7,17 +7,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 
-@Table(name = "tb_user")
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@Table(name = "tb_user")
 public class User {
 
 	@Id
@@ -25,10 +17,45 @@ public class User {
 	private Long id;
 	private String name;
 	private String email;
-    
+
 	@ManyToOne
-	@JoinColumn(name = "departament_id")
-	private Departament departament;
+	@JoinColumn(name = "department_id")
+	private Department departament;
 	
-	public User() {}
+	public User() {
+		
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Department getDepartament() {
+		return departament;
+	}
+
+	public void setDepartament(Department departament) {
+		this.departament = departament;
+	}
+
 }
